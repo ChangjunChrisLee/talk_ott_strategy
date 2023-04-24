@@ -1,0 +1,818 @@
+---
+# title: "Untitled"
+editor: visual
+# subtitle: ""
+# author: ""
+bibliography: bib/cj_refer.bib
+format: 
+  pptx:
+    # theme: ["theme/q-theme.scss"]
+    slide-number: c/t
+    logo: "img/HYU_logo_singlecolor_png.png"
+    # footer: "2023 봄철 3학회 공동 학술대회"
+    code-copy: true
+    center-title-slide: false
+    code-link: true
+    code-overflow: wrap
+    highlight-style: a11y
+    height: 1080
+    width: 1920
+    # smaller: true
+    # scrollable: true
+execute: 
+  eval: true
+  echo: true
+editor:
+  markdown:
+    wrap: 75
+---
+
+<br>
+
+<h1>OTT Movie Launching Strategy</h1>
+
+<h2>with Movie-Country Relatedness</h2>
+
+<hr>
+
+<br>
+
+<h5>2023 한국언론학회 봄철 정기학술대회\
+`미디어 경제/경영 연구회`</h5>
+
+2023-05-19
+
+<br>
+
+<br>
+
+<h3>Changjun Lee</h3>
+
+<h4>Hanyang University</h4>
+
+<h4>Dep. Media & Social Informatics</h4>
+
+`r fontawesome::fa("home", "black")`
+ [changjunlee.com](https://changjunlee.com/){.uri}
+
+<!-- ![](img/my_avatar.png){.absolute top="370" left="1400" width="500"} -->
+
+## We are..
+
+<br>
+
+### 일반공동연구지원사업(인문사회)
+
+#### 한국연구재단(2020S1A5A2A0304148012)
+
+<hr>
+
+::: columns
+::: {.column width="23%"}
+:::
+
+::: {.column width="18%"}
+**연구 책임자**
+
+![](img/ji.gif){width="300"}
+
+###### 지성욱 교수
+
+###### `한국외대`
+:::
+
+::: {.column width="18%"}
+**공동 연구자**
+
+![](img/lsy.jpg){width="300"}
+
+###### 이상엽 교수
+
+###### `연세대`
+:::
+
+::: {.column width="18%"}
+**공동 연구자**
+
+![](img/cj.jpg){width="300"}
+
+###### 이창준 교수
+
+###### `한양대ERICA`
+:::
+
+::: {.column width="23%"}
+:::
+:::
+
+## Research Background
+
+### Global OTT Platforms and Cultural Barriers
+
+<hr>
+
+-   Emergence of global OTTs: `Netflix`, `Disney+`, etc.
+
+-   Lowering cultural barriers in media consumption
+
+-   Examples:
+
+    -   Korean TV shows: `Squid Game`, `Extraordinary Attorney Woo` [@cnn2022attorneywoo]
+
+    -   US-based show: `Strange Things` [@hollywoodreporter2022strangerthings]
+
+-   However, **Global mega-hits still rare**, often a matter of serendipity
+
+::: columns
+
+::: {.column width="50%"}
+![](img/ott_3.jpg){width="800"}
+:::
+
+::: {.column width="25%"}
+![](img/ott_1.jpg){height="450"}
+:::
+
+::: {.column width="25%"}
+![](img/ott_2.jpg){height="450"}
+:::
+:::
+
+## Research Background
+
+### **Local Media Channels and OTTs - `Challenges`**
+<hr>
+
+-   Global OTTs threaten local media channels
+
+-   Local OTTs emerge to counter competition
+
+-   Main challenges for local OTTs:
+
+    1.  Producing culturally appropriate content with global mega-hit
+        potential
+
+    2.  Renting overseas content that appeals to local users [@wang2023influential]
+<br>
+
+::: columns
+
+::: {.column width="30%"}
+:::
+
+::: {.column width="50%"}
+![](https://assets.mspimages.in/gear/wp-content/uploads/2022/11/tv-6860973_960_720.jpg){fig-align="left" width="900"}
+
+:::
+
+:::
+
+
+::: footer
+Source: mysmartprice [@fig_ott_1]
+:::
+
+## Research Background
+### **Strategies for Local OTT Success**
+
+<hr>
+
+
+-   Addressing purchasing priority and cost-effectiveness
+
+-   Creating high-quality content with worldwide resonance [@kim2022theorizing]
+
+-   Catering to local user preferences
+
+-   Latecomer local OTT operators need additional strategies
+
+![](img/fig_3.png){fig-align="center"}
+
+## Problem Description
+
+<hr>
+
+
+-   Previous research on OTT strategies [@park2019research]
+
+    -   Localization, Partnership, Content differentiation, Revenue enhancement, Service optimization 
+
+-   Local OTT providers adopt a multi-faceted approach
+
+    -   Assessing demand and establishing partnerships [@wang2023influential]
+
+        -   Acquiring content similar in genre and quality to Netflix and Disney+
+
+    -   Developing local content repositories using local/regional languages
+        [@sharma2023ott]
+    
+        -   Forming strategic collaborations with: Mobile network companies, Financial institutions, Technology companies
+
+
+<br>
+
+**Research Gap**
+
+-   Limited understanding of OTT launching strategies considering:
+
+    -   `Compatibility` between movies and countries
+
+-   Need for more research on country-specific content and strategies
+
+
+
+## Research Questions & Goal
+
+
+<hr>
+
+<br>
+
+**Research Questions**
+
+-   How do content and country relationships impact popularity?
+
+-   How can accurate measurements of relatedness improve content
+    consumption patterns?
+
+<br>
+
+**Research Goal**
+
+-   Propose a method to measure ***movie-country relatedness density***
+
+-   Test the importance of the ***movie-country relatedness*** in predicting ***movie popularity*** in
+    specific countries
+
+-   Develop ***a local OTT strategy*** based on movie-country relatedness
+
+
+
+
+## Theoretical Foundations
+
+<br>
+
+**The Complexity of the Cultural Industry**
+
+-   Cultural goods difficult to express as utility function (Throsby 2001)
+
+-   Cultural industry sectors:
+
+    -   Media
+
+    -   Fashionable consumer goods
+
+    -   Services
+
+    -   Creative professions
+
+    -   Collective cultural consumption institutions (Scott 2004)
+
+*Recommended picture: A collage of various cultural industry elements
+(e.g., film, music, architecture, art).*
+
+## Theoretical Foundations
+
+<br>
+
+**Cultural Sensitivity in International Trade**
+
+-   Content carries cultural messages (Fejes 1981)
+
+-   Protection of local content from other markets
+
+-   Cultural goods deeply rooted in their place of origin (Demont‐Heinrich
+
+    2011) 
+
+-   Globalization and multicultural companies impact the cultural economy
+
+*Recommended picture: A map with arrows showing the flow of cultural goods
+between countries, indicating the sensitivity of international trade in
+cultural goods.*
+
+## Theoretical Foundations
+
+<br>
+
+**Cultural Similarity and Content-Country Compatibility**
+
+-   Importance of cultural similarity in adopting foreign content (Dwyer et
+    al. 2018, Jang et al. 2023, Kim 2022, Sharma and Lulandala 2023)
+
+-   Shared cultural attributes due to content globalization
+
+-   Special content--country compatibility beyond cultural differences
+
+-   Borrowing the concept of product--country compatibility from economic
+    geography (Hausmann and Hidalgo 2010)
+
+*Recommended picture: A Venn diagram showing the overlap of cultural
+similarity and content-country compatibility.*
+
+## Theoretical Foundations
+
+<br>
+
+**Product-Country Compatibility**
+
+-   Concept from economic geography
+
+-   Considers cultural, economic, and regulatory conditions (Asheim and
+    Isaksen 2002)
+
+-   Impacts a product's success in a target market
+
+-   Compatibility evaluated through relatedness (Jun et al. 2020)
+
+    1.  Product relatedness
+
+    2.  Importer relatedness
+
+    3.  Exporter relatedness
+
+*Recommended picture: A diagram illustrating the three dimensions of
+relatedness (product, importer, and exporter).*
+
+## Theoretical Foundations
+
+<br>
+
+**The Importance of Product-Country Compatibility**
+
+-   Widely recognized in international business and economic geography
+    (Cavusgil et al. 2014)
+
+-   Culturally aligned products more likely to succeed
+
+-   Compatibility with economic and regulatory environment leads to
+    profitability
+
+*Recommended picture: A graph showing the relationship between
+product-country compatibility and product success in a foreign market.*
+
+## Theoretical Foundations
+
+<br>
+
+**Applying Product-Country Compatibility to Content**
+
+-   Adapting the concept for content-country compatibility
+
+-   Assessing cultural, economic, and regulatory fit for content in target
+    countries
+
+-   Potential to improve the success of content in foreign markets
+
+*Recommended picture: A split image, with one side showing a product and
+its compatibility with a country, and the other side showing content and
+its compatibility with a country, illustrating the connection between the
+two concepts.*
+
+## Theoretical Foundations
+
+<br>
+
+**Content-Country Compatibility**
+
+-   Adaptation of product-country compatibility for movies and TV shows
+
+-   Considers cultural, economic, and regulatory conditions
+
+-   Impacts success and profitability of content in target markets
+
+*Recommended picture: A diagram illustrating the factors that contribute to
+content-country compatibility (cultural, economic, and regulatory
+conditions).*
+
+## Theoretical Foundations
+
+<br>
+
+**Importance of Content-Country Compatibility**
+
+-   Aligns with research on product-country compatibility
+
+-   Successful content aligns with a country's cultural norms, values, and
+    legal framework
+
+-   Examples: local actors, settings, themes
+
+*Recommended picture: A collage of successful movies and TV shows in
+various countries, illustrating the importance of content-country
+compatibility.*
+
+## Theoretical Foundations
+
+<br>
+
+**Factors Influencing Content-Country Compatibility**
+
+-   Cultural factors: language, humor, storytelling style
+
+-   Economic factors: disposable income, streaming service accessibility
+
+-   Regulatory factors: censorship laws, import/export regulations
+
+-   Complex interplay of factors in evaluating potential success
+
+*Recommended picture: A Venn diagram showing the overlap of cultural,
+economic, and regulatory factors influencing content-country
+compatibility.*
+
+## Theoretical Foundations
+
+<br>
+
+**Summary**
+
+-   Content-country compatibility crucial for international expansion
+
+-   Align content with target country's cultural, economic, and regulatory
+    conditions
+
+-   Increases likelihood of success in international business endeavors
+
+*Recommended picture: A globe with arrows pointing to various countries,
+symbolizing the international expansion of content and the importance of
+content-country compatibility.*
+
+## Theoretical Foundations
+
+<br> **Measuring Content-Movie Compatibility**
+
+-   Use relatedness density index to measure content-movie compatibility
+
+-   Equation (1) for calculating content-country related density
+    (〖RD〗\_(r,i))
+
+-   Considers co-occurrence of top-tiered lists to measure relatedness
+    (∅\_(i,j))
+
+*Recommended picture: A diagram illustrating the calculation of
+content-country related density using the relatedness density index.*
+
+## Theoretical Foundations
+
+<br> **Variation in Movies and TV Shows**
+
+-   Movies and TV shows vary in themes, characters, cultural references
+
+-   Impacts compatibility with specific countries due to diverse cultural
+    norms, values, preferences
+
+*Recommended picture: A collage of movies and TV shows with varying themes,
+characters, and cultural references to illustrate the diversity in
+content.*
+
+## Hypothesis
+
+<br>
+
+**Hypothesis 1**
+
+-   H1: Movies and TV shows exhibit varying degrees of compatibility with
+    different countries
+
+-   Compatibility predicts a given country's likelihood of including
+    content in its top 20 list
+
+*Recommended picture: A bar chart showing varying degrees of compatibility
+for different movies and TV shows across different countries, illustrating
+the hypothesis.*
+
+## Hypothesis
+
+<br>
+
+**Hypothesis 2**
+
+-   Importance of content-country compatibility acknowledged
+
+-   Global mega-hit content occasionally becomes popular across various
+    countries, regardless of compatibility
+
+-   Factors contributing to widespread popularity: effective marketing,
+    favorable media coverage, word-of-mouth recommendations
+
+-   Hypothesis 2: Ubiquity of popular content predicts a given country's
+    likelihood of including that content in its top 20 list
+
+*Recommended picture: A world map showing the widespread popularity of a
+global mega-hit movie or TV show, illustrating the hypothesis.*
+
+## Methods
+
+<br>
+
+**Method Overview**
+
+-   Data source: Flixpatrol's monthly top 20 movies in 80 countries from
+    January to December 2021
+
+-   Final sample: 1,939 movies (1,861,440 observations)
+
+-   Focusing on Netflix as a global OTT service provider
+
+-   Dependent variable: 〖ENT_TOP20〗\_(c,m,t+1) - new entry of a movie m
+    in a country's top 20 list in the period t+1
+
+*Recommended picture: A world map showing the countries included in the
+study, with each country having a top 20 list icon.*
+
+## Methods
+
+<br>
+
+**Independent Variables and Covariates**
+
+-   Independent variables:
+
+    -   Country--movie relatedness density (∅\_(c,m,t))
+
+    -   Movie ubiquity (U\_(m,t))
+
+-   Covariates:
+
+    -   Movie-specific fixed effects (Z\_(m,t)): Netflix Original status,
+        production country, genre, Rotten Tomatoes score, and IMDB score
+
+-   Purpose: Account for factors influencing a movie's inclusion in a
+    country's top 20 list
+
+*Recommended picture: A chart or diagram illustrating the relationships
+between the dependent variable, independent variables, and covariates in
+the model.*
+
+## Methods
+
+<br>
+
+**Descriptive Statistics**
+
+-   Variables in the study:
+
+    -   TOP20 Dummy: binary, 1.0% of observations = 1
+
+    -   Entry Dummy: binary, 0.9% of observations = 1
+
+    -   Netflix Original: binary, 12.8% of movies = Netflix Originals
+
+    -   Related Density: mean = 0.2, standard deviation = 0.2, range = 0 to
+        1
+
+    -   Movie Ubiquity: mean = 0.0, standard deviation = 0.1, range = 0 to
+        80
+
+    -   IMDB Score: mean = 6.3, standard deviation = 1.1
+
+    -   Rotten Tomatoes Score: mean = 53.6, standard deviation = 25.9
+
+    -   Genre: Action, Comedy, Drama, Science Fiction, and Etc.
+
+    -   Producing Country: country where a movie was produced
+
+    -   Month in 2021: each month has 9.1% of the total sample
+
+*Recommended picture: A table or chart showing the descriptive statistics
+for each variable.*
+
+## Methods
+
+<br>
+
+**Descriptive Statistics by Entry Status**
+
+-   1,706,320 observations, 15,561 (0.9%) movies newly entered top 20
+
+-   Statistically significant differences (p \< .001):
+
+    -   Related Density: Entry = 1 (0.5 ± 0.2), Entry = 0 (0.2 ± 0.2)
+
+    -   Movie Ubiquity: Entry = 1 (0.4 ± 0.4), Entry = 0 (0.0 ± 0.0)
+
+    -   Netflix Original: Entry = 1 (44.8%), Entry = 0 (12.8%)
+
+    -   Genre and Producing Country proportions
+
+-   No statistically significant differences:
+
+    -   IMDB Score: Entry = 1 (6.3 ± 1.0), Entry = 0 (6.4 ± 1.1)
+
+    -   Rotten Tomatoes Score
+
+*Recommended picture: A table or chart showing the descriptive statistics
+for each variable by entry status.*
+
+## Results
+
+<br>
+
+**Results Overview**
+
+-   Three models analyzing relationship between dependent variable
+    (〖ENT_TOP20〗\_(c,m,t+1)) and independent variables
+
+-   Model 1: Related Density and Movie Ubiquity only
+
+-   Model 2 & Model 3: Additional variables (IMDB Score, Rotten Tomatoes
+    Score, Netflix Original, Genre, Producing Country, Monthly Fixed
+    Effects)
+
+*Recommended picture: A table showing the results of the three models for
+each variable.*
+
+## Results
+
+<br>
+
+**Key Findings**
+
+-   Related Density and Movie Ubiquity positively associated with dependent
+    variable in all models
+
+    -   Suggests relatedness to other popular movies and worldwide
+        popularity important for top 20 appearance
+
+-   Other significant predictors in Model 2 & Model 3:
+
+    -   Positive: Higher IMDB score
+
+    -   Negative: Higher Rotten Tomatoes score
+
+    -   Netflix Original: Positive in Model 1, Negative in Model 3
+
+    -   Genre and Producing Country: Significant variation in coefficients
+
+*Recommended picture: A chart or graph visualizing the significant
+predictors and their associations with the dependent variable.*
+
+## Discussion
+
+<br>
+
+**Conclusions**
+
+-   Relatedness and ubiquity are important factors in predicting top 20
+    appearance
+
+-   Other factors also play a significant role in predicting likelihood of
+    appearing in a country's top 20 list
+
+*Recommended picture: A visual summary of the key findings and their
+implications for understanding movie popularity.*
+
+## Discussion
+
+<br>
+
+**Main Findings and Implications**
+
+-   Related Density and Movie Ubiquity positively associated with top 20
+    list appearance
+
+-   Hypotheses supported: Content-country compatibility and global
+    popularity impact top 20 list inclusion
+
+-   Other significant predictors: IMDB Score, Rotten Tomatoes Score,
+    Netflix Original, Genre, Producing Country, Monthly F.E.
+
+-   Findings suggest importance of considering country--movie related
+    density for OTT movie launching strategy
+
+*Recommended picture: A chart or graph summarizing the main findings and
+their implications for understanding movie popularity.*
+
+## Discussion
+
+<br>
+
+**OTT Content Launching Strategy Map**
+
+-   X-axis: Country--movie related density
+
+-   Y-axis: Movie ubiquity
+
+-   Quadrant 1 (High related density, high ubiquity): Low-risk,
+    high-benefit section
+
+    -   High investment, high return potential due to global popularity
+
+-   Suggested strategy: Local OTT providers focus on movies in Quadrant 1
+
+*Recommended picture: A visual representation of the OTT content launching
+strategy map, with quadrants highlighting the different combinations of
+related density and movie ubiquity.*
+
+## Discussion
+
+<br>
+
+**Quadrants of OTT Content Launching Strategy**
+
+-   Quadrant 2: High ubiquity, low related density
+
+    -   Moderate-risk option due to limited local appeal
+
+-   Quadrant 4: Low ubiquity, high related density
+
+    -   Low-cost, low-profit, but potential for unexpected profits due to
+        local user compatibility
+
+*Recommended picture: A chart or graph illustrating the quadrants of the
+OTT content launching strategy map.*
+
+## Discussion
+
+<br>
+
+**Country-Specific OTT Content Launching Maps**
+
+-   Argentina (December 2021):
+
+    -   Red dots: Top 20 content
+
+    -   Black dots: Not yet in top 20
+
+    -   Examples of famous movies with low compatibility: A Castle for
+        Christmas, A Boy Called Christmas, Single All the Way
+
+    -   Examples of locally compatible, less known movies: I Feel Pretty,
+        Waiting for the Hearse
+
+-   United States (December 2021):
+
+    -   Examples of famous movies with low compatibility: Spiderman
+        Homecoming, Spoiled Brats, Anonymously Yours
+
+    -   Examples of locally compatible, less known movies: Love Happens, 21
+        Jump Street, American Me
+
+-   South Korea: Refer to Figure 7
+
+**Contribution to Research**
+
+-   Adds to the growing body of research on movie consumption patterns
+
+-   Provides insights into factors determining movie success globally
+
+-   Helps local OTT providers tailor content to local audiences and compete
+    with global players
+    
+    
+
+<br>
+
+## Future Plans
+
+<br>
+
+-   Robustness check
+
+<br>
+
+-   Explore more..
+
+    -   e.g.) Multi-perosonal tendency clustering
+
+    -   Explore any difference in metaverse usage among clusters
+
+<br>
+
+-   Wrapping up the results and find a target journal
+
+## Finalize this talk
+
+<br>
+
+### Thanks for your attention
+
+<br>
+
+You can find this presentation here
+
+-   <https://changjunlee.com/blogs/posts/7_avatar_custo.html>
+
+<br>
+
+### Any questions & suggestions?
+
+<br>
+
+<br>
+
+<h3>Changjun Lee</h3>
+
+<h4>Hanyang University</h4>
+
+<h4>Dep. Media & Social Informatics</h4>
+
+`r fontawesome::fa("home", "black")`
+ [changjunlee.com](https://changjunlee.com/){.uri}
+
+![](img/my_avatar.png){.absolute top="370" left="1400" width="500"} <br>
+
+
+## References
+
