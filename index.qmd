@@ -18,6 +18,7 @@ format:
     width: 1920
     # smaller: true
     # scrollable: true
+# server: shiny
 execute: 
   eval: true
   echo: true
@@ -461,78 +462,123 @@ $$
 -   **Model:** Account for factors influencing a movie's inclusion in a
     country's top 20 list
 
-## Methods
+## Methods {.scrollable}
 
 <hr>
 
 ### Data at a glance
 
+<br>
 
--   Data table insert here
+```{r}
+#| echo: false
+library(tidyverse)
+library(autoReg)
+library(rrtable)
+load("data/final_sample.RData")
 
-## Descriptive Statistics
+flextable::set_flextable_defaults(font.size = 25)
+cid_mid_mon_ent_relden %>% 
+  filter(mid == "m15" & Month %in% c(3, 4) ) %>% 
+  head(200) %>% 
+  flextable::flextable()
+
+```
+
+## Descriptive Statistics {.scrollable}
 
 <hr>
 
--   Table insert here
+::: columns
+::: {.column width="60%"}
+```{r}
+#| echo: false
 
+# cid_mid_mon_ent_relden %>% 
+#   select(cid, mid, top20, entry, netf_org, 
+#          rel_density, mov_ubq, IMDB, Rotten, 
+#          genre_n, prod_ctry_n, Month) %>% 
+#   gaze -> gaze_ob_1
+# save(gaze_ob_1, file = "gaze_ob_1.RData")
 
-## Descriptive Statistics
+load("gaze_ob_1.RData")
 
-<hr>
+names(gaze_ob_1)[1] <- "vars"
+names(gaze_ob_1)[2] <- "levels"
+gaze_ob_1$id <- NULL
 
+flextable::set_flextable_defaults(font.size = 25)
+gaze_ob_1 %>% flextable::flextable(cwidth = c(5,5,5))
+
+```
+:::
+
+::: {.column width="40%"}
 -   Variables in the study:
 
-    -   TOP20 Dummy: binary, 1.0% of observations = 1
+    -   TOP20 Dummy = 1: 1.0%
 
-    -   Entry Dummy: binary, 0.9% of observations = 1
+    -   Entry Dummy = 1: 0.9%
 
-    -   Netflix Original: binary, 12.8% of movies = Netflix Originals
+    -   Netflix Original: 12.8%
 
-    -   Related Density: mean = 0.2, standard deviation = 0.2, range = 0 to
-        1
+    -   Related Density: mean = 0.2, sd = 0.2
 
-    -   Movie Ubiquity: mean = 0.0, standard deviation = 0.1, range = 0 to
-        80
-
-    -   IMDB Score: mean = 6.3, standard deviation = 1.1
-
-    -   Rotten Tomatoes Score: mean = 53.6, standard deviation = 25.9
-
-    -   Genre: Action, Comedy, Drama, Science Fiction, and Etc.
-
-    -   Producing Country: country where a movie was produced
+    -   Movie Ubiquity: mean = 0.0, sd = 0.1
 
     -   Month in 2021: each month has 9.1% of the total sample
+:::
+:::
 
-## Descriptive Statistics by Entry Status
-
-<hr>
-
--   Table insert here
-
-
-## Descriptive Statistics by Entry Status
+## Descriptive Statistics by Entry Status {.scrollable}
 
 <hr>
 
+::: columns
+::: {.column width="60%"}
+```{r}
+#| echo: false
+
+
+# cid_mid_mon_ent_relden %>% 
+#   select(entry, rel_density, mov_ubq, IMDB, 
+#          Rotten, netf_org, genre_n, prod_ctry_n) %>% 
+#   gaze(entry~.,data=.,digits=1,method=1,show.p=TRUE) -> gaze_ob_2
+# 
+# save(gaze_ob_2, file = "gaze_ob_2.RData")
+
+load("gaze_ob_2.RData")
+
+names(gaze_ob_2)[1] <- "vars"
+names(gaze_ob_2)[2] <- "levels"
+gaze_ob_2$id <- NULL
+
+flextable::set_flextable_defaults(font.size = 25)
+gaze_ob_2 %>% flextable::flextable(cwidth = c(4,4,5,5,2))
+
+```
+:::
+
+::: {.column width="40%"}
 -   1,706,320 observations, 15,561 (0.9%) movies newly entered top 20
 
 -   Statistically significant differences (p \< .001):
 
-    -   Related Density: Entry = 1 (0.5 ± 0.2), Entry = 0 (0.2 ± 0.2)
+    -   Related Density
 
-    -   Movie Ubiquity: Entry = 1 (0.4 ± 0.4), Entry = 0 (0.0 ± 0.0)
+    -   Movie Ubiquity
 
-    -   Netflix Original: Entry = 1 (44.8%), Entry = 0 (12.8%)
+    -   Netflix Original
 
     -   Genre and Producing Country proportions
 
 -   No statistically significant differences:
 
-    -   IMDB Score: Entry = 1 (6.3 ± 1.0), Entry = 0 (6.4 ± 1.1)
+    -   IMDB Score
 
     -   Rotten Tomatoes Score
+:::
+:::
 
 ## Model
 
@@ -552,18 +598,41 @@ $$
 
 <br>
 
-> In particular, it is a linear regression model that aims to examine the
-> impact of country--movie relatedness density (∅), movie ubiquity (U), and
-> other covariates (Z) on the entry of a movie into the top 20 list of a
-> given country at period t+1.
+> As TOP20 entry is binary, it is a Generalized Linear Model (GLM) that
+> aims to examine the impact of country-movie relatedness density (∅),
+> movie ubiquity (U), and other covariates (Z) on the entry of a movie into
+> the top 20 list of a given country at period t+1.
 
+-   Here, we use Logit as a link function for GLM
 
-## Results
+$$
+P(TOP20=1) = \frac{1}{1 + e^{-f(x)} }
+$$
+
+## Results {.scrollable}
 
 <hr>
 
--   Table insert here
+```{r}
+#| echo: false
 
+# cid_mid_mon_ent_relden %>%
+#   glm(entry~rel_density+mov_ubq+IMDB+Rotten+netf_org+genre_n+prod_ctry_n+Month, 
+#       data=., family='binomial') %>% 
+#   autoReg() -> auto_reg_ob
+# 
+# save(auto_reg_ob, file = "reg_ob_1.RData")
+
+load("reg_ob_1.RData")
+auto_reg_ob$id <- NULL
+
+names(auto_reg_ob)[1] <- "vars"
+names(auto_reg_ob)[2] <- "levels"
+
+flextable::set_flextable_defaults(font.size = 25)
+auto_reg_ob %>% flextable::flextable(cwidth = c(3,3,4,4,6))
+
+```
 
 ## Results
 
@@ -596,7 +665,6 @@ $$
 
 <br>
 
-
 ### Highlight
 
 -   **`Related Density`** and **`Movie Ubiquity`** positively associated
@@ -615,32 +683,36 @@ $$
 
 <hr>
 
-<br>
-
 **OTT Content Launching Strategy Map**
 
--   X-axis: Country--movie related density
+<br>
 
--   Y-axis: Movie ubiquity
+::: columns
+::: {.column width="50%"}
+![](img/figure_4.png){fig-align="center" width="700"}
+:::
 
--   Quadrant 1 (High related density, high ubiquity): Low-risk,
-    high-benefit section
+::: {.column width="50%"}
+-   **X-axis:** Country--movie Relatedness density
+
+-   **Y-axis:** Movie Ubiquity
+
+-   **Quadrant 1**: Low-risk, high-benefit section
 
     -   High investment, high return potential due to global popularity
     -   Suggested strategy: Local OTT providers focus on movies in Quadrant
         1
 
-```{=html}
-<!-- -->
-```
--   Quadrant 2: High ubiquity, low related density
+-   **Quadrant 2**: High ubiquity, low related density
 
     -   Moderate-risk option due to limited local appeal
 
--   Quadrant 4: Low ubiquity, high related density
+-   **Quadrant 4**: Low ubiquity, high related density
 
     -   Low-cost, low-profit, but potential for unexpected profits due to
         local user compatibility
+:::
+:::
 
 ## Extension - OTT launching strategy
 
@@ -652,32 +724,26 @@ $$
 
 -   Black dots: Not yet in top 20
 
--   Examples of famous movies with low compatibility: A Castle for Christmas, A Boy Called Christmas, Single All the Way
+-   Examples of famous movies with low compatibility: A Castle for
+    Christmas, A Boy Called Christmas, Single All the Way
 
--   Examples of locally compatible, less known movies: I Feel Pretty, Waiting for the Hearse
-
-## Extension - OTT launching strategy
-
-<hr>
-
-### **Country-Specific OTT Content Launching Maps**: United States (December 2021)
-
--   Examples of famous movies with low compatibility: Spiderman
-    Homecoming, Spoiled Brats, Anonymously Yours
-
--   Examples of locally compatible, less known movies: Love Happens, 21
-    Jump Street, American Me
+-   Examples of locally compatible, less known movies: I Feel Pretty,
+    Waiting for the Hearse
 
 ## Extension - OTT launching strategy
 
 <hr>
 
-### **Country-Specific OTT Content Launching Maps**: South Korea
+<iframe src="https://cjlee83.shinyapps.io/ott_launching_strategy/" frameborder="15" width="1600" height="1600">
+
+</iframe>
 
 
-
-
-
+::: footer
+Please find this
+[link](https://cjlee83.shinyapps.io/ott_launching_strategy/) for more
+details
+:::
 
 ## Future Plans
 
@@ -691,7 +757,7 @@ $$
 
     -   e.g.)
 
-    -   Explore 
+    -   Explore
 
 <br>
 
@@ -729,7 +795,5 @@ You can find this presentation here
 ![](img/my_avatar.png){.absolute top="370" left="1400" width="500"} <br>
 
 ## References
+
 <hr>
-
-
-
